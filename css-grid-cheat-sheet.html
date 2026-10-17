@@ -1,102 +1,296 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CSS Grid Cheat Sheet for Beginners</title>
-  <style>
-    :root { color-scheme: light; --ink: #24343a; --green: #126b63; --pale: #e2f2ee; --line: #b7d2cc; --paper: #f5f8f7; }
-    * { box-sizing: border-box; }
-    body { margin: 0; padding: 32px 18px 56px; background: var(--paper); color: var(--ink); font: 16px/1.55 system-ui, sans-serif; }
-    main { max-width: 980px; margin: auto; }
-    h1, h2, h3 { line-height: 1.2; }
-    h1 { margin-bottom: 8px; color: var(--green); font-size: clamp(2rem, 5vw, 3rem); }
-    h2 { margin-top: 38px; padding-bottom: 8px; border-bottom: 2px solid var(--line); }
-    .intro { max-width: 700px; margin-top: 0; }
-    .panel { padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: white; }
-    .diagram { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 12px; border: 2px dashed var(--green); border-radius: 10px; background: #f3fbf8; }
-    .cell { display: grid; min-height: 76px; place-items: center; border: 2px solid var(--green); border-radius: 8px; background: var(--pale); color: #0b504a; font-weight: 700; text-align: center; }
-    .caption { margin: 10px 0 0; color: #52676b; font-size: .93rem; }
-    .parts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
-    .parts div { padding: 12px; border-radius: 8px; background: #f0f4f5; }
-    code, pre { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-    pre { overflow-x: auto; padding: 16px; border-radius: 9px; background: #173b3a; color: #f5fffc; }
-    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .mini { display: grid; gap: 8px; padding: 10px; border: 2px dashed var(--green); border-radius: 8px; }
-    .three { grid-template-columns: repeat(3, 1fr); }
-    .two { grid-template-columns: 2fr 1fr; }
-    .mini span { display: grid; min-height: 42px; place-items: center; border-radius: 5px; background: var(--pale); color: var(--green); font-weight: 700; }
-    .line-demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 30px 18px 12px; counter-reset: none; }
-    .line-demo span { position: relative; display: grid; min-height: 58px; place-items: center; background: var(--pale); border: 1px solid var(--line); }
-    .line-demo span::before { position: absolute; top: -26px; left: -2px; color: #a04d00; font-size: .8rem; font-weight: 700; }
-    .line-demo span:nth-child(1)::before { content: "line 1"; }
-    .line-demo span:nth-child(2)::before { content: "line 2"; }
-    .line-demo span:nth-child(3)::before { content: "line 3"; }
-    .line-demo span:nth-child(4)::before { content: "line 4"; }
-    .note { padding: 12px 15px; border-left: 4px solid #e59b35; background: #fff8ed; }
-    @media (max-width: 620px) { body { padding: 22px 14px 40px; } .parts, .compare { grid-template-columns: 1fr; } .panel { padding: 15px; } .cell { min-height: 60px; font-size: .9rem; } }
-  </style>
-</head>
-<body>
-<main>
-  <h1>CSS Grid Cheat Sheet</h1>
-  <p class="intro">Grid arranges items into rows and columns. First, make a parent element a grid container. Its direct children become grid items.</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Grid Cheat Sheet for Beginners</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #24343a;
+        --green: #126b63;
+        --pale: #e2f2ee;
+        --line: #b7d2cc;
+        --paper: #f5f8f7;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 32px 18px 56px;
+        background: var(--paper);
+        color: var(--ink);
+        font:
+          16px/1.55 system-ui,
+          sans-serif;
+      }
+      main {
+        max-width: 980px;
+        margin: auto;
+      }
+      h1,
+      h2,
+      h3 {
+        line-height: 1.2;
+      }
+      h1 {
+        margin-bottom: 8px;
+        color: var(--green);
+        font-size: clamp(2rem, 5vw, 3rem);
+      }
+      h2 {
+        margin-top: 38px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--line);
+      }
+      .intro {
+        max-width: 700px;
+        margin-top: 0;
+      }
+      .panel {
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: white;
+      }
+      .diagram {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        padding: 12px;
+        border: 2px dashed var(--green);
+        border-radius: 10px;
+        background: #f3fbf8;
+      }
+      .cell {
+        display: grid;
+        min-height: 76px;
+        place-items: center;
+        border: 2px solid var(--green);
+        border-radius: 8px;
+        background: var(--pale);
+        color: #0b504a;
+        font-weight: 700;
+        text-align: center;
+      }
+      .caption {
+        margin: 10px 0 0;
+        color: #52676b;
+        font-size: 0.93rem;
+      }
+      .parts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .parts div {
+        padding: 12px;
+        border-radius: 8px;
+        background: #f0f4f5;
+      }
+      code,
+      pre {
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      }
+      pre {
+        overflow-x: auto;
+        padding: 16px;
+        border-radius: 9px;
+        background: #173b3a;
+        color: #f5fffc;
+      }
+      .compare {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .mini {
+        display: grid;
+        gap: 8px;
+        padding: 10px;
+        border: 2px dashed var(--green);
+        border-radius: 8px;
+      }
+      .three {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .two {
+        grid-template-columns: 2fr 1fr;
+      }
+      .mini span {
+        display: grid;
+        min-height: 42px;
+        place-items: center;
+        border-radius: 5px;
+        background: var(--pale);
+        color: var(--green);
+        font-weight: 700;
+      }
+      .line-demo {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: 30px 18px 12px;
+        counter-reset: none;
+      }
+      .line-demo span {
+        position: relative;
+        display: grid;
+        min-height: 58px;
+        place-items: center;
+        background: var(--pale);
+        border: 1px solid var(--line);
+      }
+      .line-demo span::before {
+        position: absolute;
+        top: -26px;
+        left: -2px;
+        color: #a04d00;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+      .line-demo span:nth-child(1)::before {
+        content: "line 1";
+      }
+      .line-demo span:nth-child(2)::before {
+        content: "line 2";
+      }
+      .line-demo span:nth-child(3)::before {
+        content: "line 3";
+      }
+      .line-demo span:nth-child(4)::before {
+        content: "line 4";
+      }
+      .note {
+        padding: 12px 15px;
+        border-left: 4px solid #e59b35;
+        background: #fff8ed;
+      }
+      @media (max-width: 620px) {
+        body {
+          padding: 22px 14px 40px;
+        }
+        .parts,
+        .compare {
+          grid-template-columns: 1fr;
+        }
+        .panel {
+          padding: 15px;
+        }
+        .cell {
+          min-height: 60px;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>CSS Grid Cheat Sheet</h1>
+      <p class="intro">
+        Grid arranges items into rows and columns. First, make a parent element a grid container.
+        Its direct children become grid items.
+      </p>
 
-  <section class="panel" aria-labelledby="anatomy-title">
-    <h2 id="anatomy-title">1. See the parts</h2>
-    <div class="diagram" aria-label="A grid with three columns, two rows, and gaps between six cells">
-      <div class="cell">Item 1</div><div class="cell">Item 2</div><div class="cell">Item 3</div>
-      <div class="cell">Item 4</div><div class="cell">Item 5</div><div class="cell">Item 6</div>
-    </div>
-    <div class="parts">
-      <div><strong>Columns</strong><br>Vertical tracks, side by side.</div>
-      <div><strong>Rows</strong><br>Horizontal tracks, stacked.</div>
-      <div><strong>Gap</strong><br>Empty space between tracks.</div>
-    </div>
-    <p class="caption">The dashed outline shows the grid container. Each shaded box is a grid item (a direct child of that container).</p>
-  </section>
+      <section class="panel" aria-labelledby="anatomy-title">
+        <h2 id="anatomy-title">1. See the parts</h2>
+        <div
+          class="diagram"
+          aria-label="A grid with three columns, two rows, and gaps between six cells"
+        >
+          <div class="cell">Item 1</div>
+          <div class="cell">Item 2</div>
+          <div class="cell">Item 3</div>
+          <div class="cell">Item 4</div>
+          <div class="cell">Item 5</div>
+          <div class="cell">Item 6</div>
+        </div>
+        <div class="parts">
+          <div><strong>Columns</strong><br />Vertical tracks, side by side.</div>
+          <div><strong>Rows</strong><br />Horizontal tracks, stacked.</div>
+          <div><strong>Gap</strong><br />Empty space between tracks.</div>
+        </div>
+        <p class="caption">
+          The dashed outline shows the grid container. Each shaded box is a grid item (a direct
+          child of that container).
+        </p>
+      </section>
 
-  <h2>2. The three steps</h2>
-  <ol>
-    <li>Select the parent that should control the layout.</li>
-    <li>Set <code>display: grid</code> on that parent.</li>
-    <li>Choose columns, spacing, and any special placement you need.</li>
-  </ol>
-  <pre><code>.cards {
+      <h2>2. The three steps</h2>
+      <ol>
+        <li>Select the parent that should control the layout.</li>
+        <li>Set <code>display: grid</code> on that parent.</li>
+        <li>Choose columns, spacing, and any special placement you need.</li>
+      </ol>
+      <pre><code>.cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }</code></pre>
-  <p>In the clinic guide, <code>.service-grid</code> uses this pattern. The three service cards become three equal columns with 20px between them.</p>
+      <p>
+        In the clinic guide, <code>.service-grid</code> uses this pattern. The three service cards
+        become three equal columns with 20px between them.
+      </p>
 
-  <h2>3. Column recipes</h2>
-  <div class="compare">
-    <div class="panel"><h3>Three equal columns</h3><div class="mini three"><span>1fr</span><span>1fr</span><span>1fr</span></div><p><code>repeat(3, 1fr)</code> repeats three equally sized tracks.</p></div>
-    <div class="panel"><h3>Unequal columns</h3><div class="mini two"><span>2fr</span><span>1fr</span></div><p><code>2fr 1fr</code> gives the first track twice the free space of the second.</p></div>
-  </div>
-  <p><code>fr</code> means a share of available space. For example, <code>1fr 1fr</code> splits the space evenly. <code>minmax(0, 1fr)</code> lets a track shrink when space is tight while sharing remaining space equally.</p>
+      <h2>3. Column recipes</h2>
+      <div class="compare">
+        <div class="panel">
+          <h3>Three equal columns</h3>
+          <div class="mini three"><span>1fr</span><span>1fr</span><span>1fr</span></div>
+          <p><code>repeat(3, 1fr)</code> repeats three equally sized tracks.</p>
+        </div>
+        <div class="panel">
+          <h3>Unequal columns</h3>
+          <div class="mini two"><span>2fr</span><span>1fr</span></div>
+          <p><code>2fr 1fr</code> gives the first track twice the free space of the second.</p>
+        </div>
+      </div>
+      <p>
+        <code>fr</code> means a share of available space. For example, <code>1fr 1fr</code> splits
+        the space evenly. <code>minmax(0, 1fr)</code> lets a track shrink when space is tight while
+        sharing remaining space equally.
+      </p>
 
-  <h2>4. Grid lines and placement</h2>
-  <p>Grid lines mark the edges of tracks. A three-column grid has four vertical lines. You can place an item between line numbers:</p>
-  <div class="line-demo" aria-label="Three columns separated by four numbered grid lines"><span>Column 1</span><span>Column 2</span><span>Column 3</span></div>
-  <pre><code>.feature {
+      <h2>4. Grid lines and placement</h2>
+      <p>
+        Grid lines mark the edges of tracks. A three-column grid has four vertical lines. You can
+        place an item between line numbers:
+      </p>
+      <div class="line-demo" aria-label="Three columns separated by four numbered grid lines">
+        <span>Column 1</span><span>Column 2</span><span>Column 3</span>
+      </div>
+      <pre><code>.feature {
   grid-column: 1 / 3; /* starts at line 1, ends at line 3; spans two columns */
 }</code></pre>
-  <p class="note"><strong>Remember:</strong> Grid lines are numbered from the start edge. The ending line is the edge where the item stops, so line 1 to line 3 covers two columns.</p>
+      <p class="note">
+        <strong>Remember:</strong> Grid lines are numbered from the start edge. The ending line is
+        the edge where the item stops, so line 1 to line 3 covers two columns.
+      </p>
 
-  <h2>5. Responsive grids</h2>
-  <p>Use a media query to change the number of columns on smaller screens. The clinic guide switches its service and contact grids from three columns to one.</p>
-  <pre><code>.cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      <h2>5. Responsive grids</h2>
+      <p>
+        Use a media query to change the number of columns on smaller screens. The clinic guide
+        switches its service and contact grids from three columns to one.
+      </p>
+      <pre><code>.cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 @media (max-width: 760px) {
   .cards { grid-template-columns: 1fr; }
 }</code></pre>
 
-  <h2>6. Grid or Flexbox?</h2>
-  <ul>
-    <li>Use <strong>Grid</strong> when you want to control rows and columns together, such as a card layout.</li>
-    <li>Use <strong>Flexbox</strong> when arranging items mainly in one direction, such as a row of navigation links.</li>
-  </ul>
-</main>
-</body>
+      <h2>6. Grid or Flexbox?</h2>
+      <ul>
+        <li>
+          Use <strong>Grid</strong> when you want to control rows and columns together, such as a
+          card layout.
+        </li>
+        <li>
+          Use <strong>Flexbox</strong> when arranging items mainly in one direction, such as a row
+          of navigation links.
+        </li>
+      </ul>
+    </main>
+  </body>
 </html>

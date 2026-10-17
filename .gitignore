@@ -1,0 +1,3 @@
+# Keep local formatting preferences out of the GitHub repository.
+.prettierrc.json
+.prettierignore
