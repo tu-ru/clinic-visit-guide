@@ -35,13 +35,17 @@ There may be other folders, such as `images`. Keep the project folders in place 
 ## Part 2: Finish the original website
 
 1. Open `index.html` in your code editor.
-2. Continue from the point where you left off in class. Type the HTML code yourself. Do not copy and paste the HTML code from another student's work or from the example source.
-3. Open `assets/css/style.css`.
-4. Continue typing the CSS code yourself. Do not copy and paste the CSS code from another student's work or from the example source.
-5. Save both files.
-6. Preview `index.html` in a browser.
-7. Compare your result carefully with the revised example website linked by your instructor. Check the page from top to bottom, including spacing, colors, text, images, buttons, cards, and how it changes at a narrow screen size.
-8. Make corrections in your own HTML and CSS until your result matches the revised example website exactly.
+2. Before continuing, read the HTML comments throughout `index.html`. HTML comments begin with `<!--` and end with `-->`. They are notes for people reading the code; the browser does not show them as page content.
+3. Continue from the point where you left off in class. Type the HTML code yourself. Do not copy and paste the HTML code from another student's work or from the example source. As you work, pause at each comment, find the HTML element it describes, and make sure you understand the connection.
+4. Open `assets/css/style.css` and read the comments throughout the file. CSS comments begin with `/*` and end with `*/`. They explain which elements a rule affects and why a style or layout is used.
+5. Continue typing the CSS code yourself. Do not copy and paste the CSS code from another student's work or from the example source. As you work, use the comments to find the related CSS rule and think about how it changes the HTML on the page.
+6. If a comment is unclear, point to the code it describes and ask your instructor before moving on. Do not skip the comments or treat them as code that changes the page.
+7. Save both files.
+8. Preview `index.html` in a browser.
+9. Compare your result carefully with the revised example website linked by your instructor. Check the page from top to bottom, including spacing, colors, text, images, buttons, cards, and how it changes at a narrow screen size.
+10. Make corrections in your own HTML and CSS until your result matches the revised example website exactly.
+
+**Comment check:** Before moving to the challenge, explain in your own words one comment from `index.html` and one from `style.css`. For each one, identify the element or CSS rule it describes and what that code does.
 
 **Checkpoint:** Do not start the layout challenge until your original `index.html` and `style.css` match the revised example website.
 
@@ -95,6 +99,7 @@ When you are done, check both versions:
 
 - [ ] The original website matches the revised example website.
 - [ ] I typed the original HTML and CSS myself.
+- [ ] I read the comments throughout both original files and can explain one HTML comment and one CSS comment.
 - [ ] `modified.html` and `assets/css/modified.css` are separate copies.
 - [ ] `modified.html` links to `assets/css/modified.css`.
 - [ ] I completed the layout challenge using only the modified files.

@@ -55,8 +55,11 @@ section { scroll-margin-top: 20px; }
   gap: 24px;
   max-width: 100%;
   margin: 0 auto;
-  /* Two-value padding means 18px top/bottom and 116px left/right. */
-  padding: 18px 116px;
+  /* Padding sets 18px top/bottom. Horizontally, max() chooses the larger
+     gutter: at least 6% of the viewport, or half the space left after
+     reserving --content-width. This keeps the header content aligned with
+     the centered page sections on wide screens and inset on narrower ones. */
+  padding: 18px max(6%, calc((100% - var(--content-width)) / 2));
   background: var(--color-white);
 }
 
