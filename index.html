@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- UTF-8 supports a wide range of characters; the viewport helps the layout fit phones. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- A short summary can appear in search results; the title labels the browser tab. -->
   <meta name="description" content="A simple guide to clinic services, opening hours and preparing for a visit.">
   <title>Clinic Visit Guide | CarePoint Clinic</title>
+  <!-- Load the separate stylesheet so content and presentation stay organized. -->
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+  <!-- The header groups the brand and the main links. The CSS places them in a row. -->
   <header class="site-header">
     <a class="logo" href="#home">CarePoint<span> Clinic</span></a>
+    <!-- Each fragment link jumps to the section with the matching id below. -->
     <nav aria-label="Main navigation">
       <a href="#services">Services</a>
       <a href="#prepare">Visit Guide</a>
@@ -17,7 +22,9 @@
     </nav>
   </header>
 
+  <!-- Main contains the central information of this page. -->
   <main>
+    <!-- Welcome area: text, an image, and a supporting reminder. id="home" is a link target. -->
     <section class="hero" id="home">
       <div class="hero-content">
         <p class="eyebrow">YOUR COMMUNITY HEALTH RESOURCE</p>
@@ -25,7 +32,7 @@
         <p class="hero-description">Find useful information about our services, opening hours and how to prepare for your visit.</p>
         <a class="button" href="#services">Explore our services</a>
       </div>
-      <!-- IMAGE SLOT: Replace images/clinic-hero.jpg with your chosen image path. -->
+      <!-- IMAGE SLOT: Replace the image path with your chosen file; keep useful alt text. -->
       <div class="hero-image">
         <img src="images/clinic-hero.jpg" alt="Clinic staff welcoming a visitor">
         <span class="image-label">Hero image · replace clinic-hero.jpg</span>
@@ -36,15 +43,18 @@
       </aside>
     </section>
 
+    <!-- The id lets navigation links jump here; the class supplies shared section spacing. -->
     <section class="section" id="services">
       <div class="section-heading">
         <p class="eyebrow">HOW WE CAN HELP</p>
         <h2>Our services</h2>
         <p class="section-intro">Learn more about the services available at our example community clinic.</p>
       </div>
+      <!-- This parent is a CSS Grid container. Each article below becomes one grid item. -->
       <div class="service-grid">
         <article class="service-card">
-          <!-- IMAGE SLOT: Replace images/general-consultation.jpg with your chosen image. -->
+          <!-- Each article groups one service's image, number, heading, and description. -->
+          <!-- IMAGE SLOT: Replace the image path with your chosen file; keep useful alt text. -->
           <img class="service-image" src="images/general-consultation.jpg" alt="General consultation">
           <div class="card-icon" aria-hidden="true">01</div>
           <h3>General Consultation</h3>
@@ -67,12 +77,14 @@
       </div>
     </section>
 
+    <!-- The preparation class adds a two-column Grid layout on wider screens. -->
     <section class="section preparation" id="prepare">
       <div class="preparation-copy">
         <p class="eyebrow">MAKE YOUR VISIT EASIER</p>
         <h2>Before your visit</h2>
         <p>Consider preparing these items before leaving for the clinic.</p>
       </div>
+      <!-- A semantic list keeps these preparation steps understandable without styling. -->
       <ul class="checklist">
         <li>Identification, where required</li>
         <li>Appointment details, if applicable</li>
@@ -81,6 +93,7 @@
       </ul>
     </section>
 
+    <!-- Contact details are grouped into three articles and become a Grid on wide screens. -->
     <section class="section contact" id="contact">
       <div class="section-heading">
         <p class="eyebrow">WE ARE HERE TO HELP</p>
@@ -96,6 +109,7 @@
         </article>
         <article class="contact-item">
           <h3>Telephone</h3>
+          <!-- tel: and mailto: links can open the visitor's phone or email app. -->
           <p><a href="tel:+254700000000">+254 700 000 000</a></p>
           <p class="muted">Fictional example number</p>
         </article>
@@ -109,6 +123,7 @@
     </section>
   </main>
 
+  <!-- Footer content closes the page and repeats a link back to the welcome section. -->
   <footer class="site-footer">
     <a class="footer-logo" href="#home">CarePoint Clinic</a>
     <p>&copy; 2026 CarePoint Clinic. Educational demo only.</p>

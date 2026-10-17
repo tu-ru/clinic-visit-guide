@@ -1,4 +1,6 @@
-/* 1. Global styles and reusable colours */
+/* 1. Global styles and reusable colours
+   Variables in :root can be reused throughout this file. Change a value here
+   to update every component that uses it, which helps keep colors consistent. */
 :root {
   --color-primary: #126b63;
   --color-primary-dark: #0b504a;
@@ -14,9 +16,11 @@
   --image-placeholder: #dcebe7;
 }
 
+/* Include padding and borders inside declared widths/heights for easier sizing. */
 * { box-sizing: border-box; }
 
 html {
+  /* Anchor links scroll smoothly; leave room above a section heading after a jump. */
   scroll-behavior: smooth;
   scroll-padding-top: 24px;
 }
@@ -44,12 +48,14 @@ section { scroll-margin-top: 20px; }
 
 /* 2. Simple header and navigation */
 .site-header {
+  /* Flexbox puts the logo and nav in one row and spreads them apart. */
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
   max-width: 100%;
   margin: 0 auto;
+  /* Two-value padding means 18px top/bottom and 116px left/right. */
   padding: 18px 116px;
   background: var(--color-white);
 }
@@ -69,6 +75,7 @@ section { scroll-margin-top: 20px; }
 }
 
 nav {
+  /* Arrange links in a row; wrapping prevents overflow when space is limited. */
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -103,8 +110,11 @@ nav a.nav-contact:focus-visible {
   color: var(--color-white);
 }
 
-/* Image slots: change the image files in index.html to swap pictures */
+/* Image slots: change the image files in index.html to swap pictures.
+   The shared rule makes both hero and card photos fill their width and crop
+   excess edges rather than stretching the image out of proportion. */
 .hero-image {
+  /* This parent anchors the absolute image label; overflow clips rounded edges. */
   position: relative;
   flex: 0 1 300px;
   min-width: 220px;
@@ -127,6 +137,7 @@ nav a.nav-contact:focus-visible {
 }
 
 .image-label {
+  /* Place the label over the image, inset from its lower and side edges. */
   position: absolute;
   right: 8px;
   bottom: 8px;
@@ -140,12 +151,13 @@ nav a.nav-contact:focus-visible {
 
 /* 3. Hero / welcome section */
 .hero {
+  /* Flexbox places the text, photo, and note side by side where they fit. */
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 28px;
   min-height: 390px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Move items to another line if the row becomes too narrow. */
   padding: 76px max(6%, calc((100% - var(--content-width)) / 2));
   background:
     radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.8), transparent 28%),
@@ -165,6 +177,7 @@ nav a.nav-contact:focus-visible {
 .hero h1 {
   max-width: 650px;
   margin-bottom: 20px;
+  /* Responsive font: never smaller than 2.3rem or larger than 4rem. */
   font-size: clamp(2.3rem, 5vw, 4rem);
   letter-spacing: -0.045em;
 }
@@ -189,6 +202,7 @@ nav a.nav-contact:focus-visible {
 }
 
 .button:hover {
+  /* A small lift and darker colors signal that the link is interactive. */
   transform: translateY(-2px);
   border-color: var(--color-primary-dark);
   background: var(--color-primary-dark);
@@ -201,6 +215,7 @@ nav a.nav-contact:focus-visible {
 }
 
 .hero-note {
+  /* Another one-direction Flexbox row: icon first, reminder text second. */
   display: flex;
   align-items: flex-start;
   gap: 14px;
@@ -215,6 +230,7 @@ nav a.nav-contact:focus-visible {
 .hero-note p { margin: 0; font-size: 0.95rem; font-weight: 700; }
 
 .note-mark {
+  /* A one-cell Grid centers the letter in the circular icon. */
   display: grid;
   flex: 0 0 28px;
   width: 28px;
@@ -239,12 +255,14 @@ nav a.nav-contact:focus-visible {
 
 /* 5. Service cards using CSS Grid */
 .service-grid {
+  /* Three equal columns; minmax(0, 1fr) lets tracks shrink without overflow. */
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
 .service-card {
+  /* This is a grid item. Its padding is inside the border due to border-box above. */
   padding: 16px;
   border: 1px solid var(--color-border);
   border-radius: 12px;
@@ -266,6 +284,7 @@ nav a.nav-contact:focus-visible {
 }
 
 .card-icon {
+  /* Grid is also useful for centering content inside a small box. */
   display: grid;
   width: 42px;
   height: 42px;
@@ -283,6 +302,7 @@ nav a.nav-contact:focus-visible {
 
 /* 6. Preparation checklist */
 .preparation {
+  /* Two columns: 0.9 and 1.1 shares, so the checklist is slightly wider. */
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   align-items: start;
@@ -307,6 +327,7 @@ nav a.nav-contact:focus-visible {
 }
 
 .checklist li::before {
+  /* Add a decorative check without adding extra characters to every HTML item. */
   position: absolute;
   top: 14px;
   left: 16px;
@@ -317,6 +338,7 @@ nav a.nav-contact:focus-visible {
 
 /* 7. Contact and opening hours */
 .contact-grid {
+  /* Three equal columns keep the contact cards aligned on wide screens. */
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
@@ -360,7 +382,8 @@ nav a.nav-contact:focus-visible {
 .site-footer > a:last-child { color: var(--color-white); font-size: 0.9rem; text-decoration: none; }
 .site-footer > a:last-child:hover { text-decoration: underline; }
 
-/* 9. Responsive layout for tablets and phones */
+/* 9. Responsive layout for tablets and phones
+   These overrides apply at 760px and below, rearranging content for a narrow view. */
 @media (max-width: 760px) {
   .site-header { align-items: flex-start; flex-direction: column; gap: 12px; padding: 18px 6%; }
   nav { gap: 4px; }
@@ -377,12 +400,13 @@ nav a.nav-contact:focus-visible {
   .hero-note { width: 100%; max-width: 420px; }
   .hero-image { width: 100%; min-width: 0; max-width: 480px; height: 220px; }
   .section { padding: 48px 6%; }
+  /* One flexible column stacks the cards vertically on smaller screens. */
   .service-grid, .contact-grid { grid-template-columns: 1fr; }
   .preparation { grid-template-columns: 1fr; gap: 24px; padding-right: 6%; padding-left: 6%; }
   .site-footer { align-items: flex-start; flex-direction: column; padding: 24px 6%; }
 }
 
-/* Respect visitors who prefer reduced motion */
+/* Respect visitors who prefer reduced motion by removing most animation effects. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

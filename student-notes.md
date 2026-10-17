@@ -123,3 +123,7 @@ These notes describe the files as they currently appear. A few details may be ac
 | Media query | A CSS condition that applies rules for a screen size or user preference |
 
 For the visual Grid reference, open [CSS Grid Cheat Sheet](css-grid-cheat-sheet.html) in a browser.
+
+Try the [Two-Column Services Layout challenge](layout-challenge.md) to practice adding a grid item and changing the layout for wide and narrow screens.
+
+For the full class workflow, see [Student Project Instructions](student-project-instructions.md).
