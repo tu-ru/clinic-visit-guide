@@ -85,6 +85,78 @@ Find the `@media (max-width: 760px)` section near the bottom of `modified.css`. 
 
 Make your browser window narrow (or use its mobile preview) and refresh. The cards should stack in one column. Widen the window again to see the two-column layout.
 
+## More practice: ten follow-up challenges
+
+Challenges 6–15 help you connect what you see in the browser to the HTML and CSS that create it. Do them in order, one at a time. Each takes about 3–5 minutes. Save and refresh after each change, and use only `modified.html` and `assets/css/modified.css`.
+
+### 6. Edit a card in HTML
+
+In `modified.html`, change the heading and description in your new service card. Save and refresh.
+
+**Notice:** Which words changed? Did the card's layout or styling change?
+
+### 7. Find a matching CSS selector
+
+In `modified.css`, find `.service-card h3`. Change its `color` to `var(--color-accent)`. Save and refresh.
+
+**Notice:** Which headings changed? The space in `.service-card h3` means the rule selects `h3` headings inside service cards.
+
+### 8. Adjust card corners
+
+Find the `.service-card` rule and change `border-radius: 12px` to `border-radius: 24px`. Compare the corners, then choose either value to keep.
+
+**Notice:** Did the corners of the image change too? The image has its own border-radius rule.
+
+### 9. Try the box model
+
+In `.service-card`, change `padding: 16px` to `padding: 24px`. Compare the space between the card's edge and its text. Restore 16px or keep your preferred value.
+
+**In your own words:** What does padding add space between?
+
+### 10. Change the card spacing
+
+In `.service-grid`, change `gap: 20px` to `gap: 32px`. Preview at a wide screen, then narrow the browser.
+
+**Notice:** Does the gap apply between rows as well as columns? Does it change the space inside each card?
+
+### 11. Add a checklist item in HTML
+
+Find `<ul class="checklist">` in `modified.html`. Add one more `<li>` with a general preparation reminder, such as:
+
+```html
+<li>A note of any questions you want to ask</li>
+```
+
+Save and refresh. Keep the reminder general and suitable for this fictional example.
+
+**Notice:** Which CSS rule styles the new item even though you did not add a new CSS rule?
+
+### 12. Style the checklist items
+
+In `modified.css`, find `.checklist li`. Change its `background` from `rgba(255, 255, 255, 0.8)` to `var(--color-white)`. Refresh and compare the list.
+
+**Notice:** The selector has spaces because it targets each `li` inside `.checklist`.
+
+### 13. Trace a navigation link
+
+In `modified.html`, find the Services link in the navigation. Follow its `href` value to the element with the matching `id` in the page. Click the link in your browser to confirm it jumps to that section.
+
+**Try:** Temporarily change `href="#services"` to `href="#contact"`. Click it, observe where it goes, then restore `#services`.
+
+### 14. Check keyboard focus
+
+Use the **Tab** key to move through the links and buttons on the page. Look for the visible outline around the focused item. Find `a:focus-visible` in `modified.css` and change `outline-offset: 4px` to `outline-offset: 8px`.
+
+Use Tab again and compare the outline. This rule helps people who navigate with a keyboard see which link is selected.
+
+### 15. Explain and test a responsive rule
+
+Find the `@media (max-width: 760px)` rule in `modified.css`. In your own words, explain when its styles apply and what `grid-template-columns: 1fr` does for `.service-grid`.
+
+As a quick test, temporarily change `760px` to `500px`. Resize the browser around 500px wide and observe when the cards stack. Restore `760px` afterward.
+
+**Challenge complete:** Tell a partner which HTML change added content, which CSS change affected appearance, and which rule changed the layout for a narrow screen.
+
 ## Done when
 
 - [ ] `modified.html` has four service cards inside `.service-grid`.
@@ -92,6 +164,7 @@ Make your browser window narrow (or use its mobile preview) and refresh. The car
 - [ ] `modified.css` displays two columns on a wide screen.
 - [ ] The cards stack into one column on a narrow screen.
 - [ ] You made and previewed one small CSS change.
+- [ ] You completed the follow-up challenges you chose and restored any temporary test values.
 - [ ] `index.html` and `assets/css/style.css` remain your completed original.
 
 ## Tell a partner or instructor
